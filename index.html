@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chic N Chop - Authentic Indian Cuisine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    /* Header & Navigation */
+    header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+    .navbar-nav {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #d97706;
+    }
+    .navbar-btn-group {
+      display: flex;
+      gap: 1rem;
+    }
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+    .btn-primary {
+      background: #1a1a1a;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #333;
+    }
+    .menu-toggle-btn {
+      display: none;
+    }
+    /* Hero Section */
+    .home {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      padding: 6rem 3rem;
+      align-items: center;
+    }
+    .home-subtext {
+      color: #d97706;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .main-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      color: #1a1a1a;
+    }
+    .home-text {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
+    .home-right {
+      position: relative;
+      height: 500px;
+    }
+    .home-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    /* Info Bar */
+    .info-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 3rem;
+      background: #f9fafb;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .info-icon {
+      font-size: 1.5rem;
+      color: #d97706;
+    }
+    .info-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .info-text {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    /* About Section */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      padding: 6rem 3rem;
+      align-items: center;
+    }
+    .about-left {
+      position: relative;
+    }
+    .about-img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+    }
+    .section-text {
+      color: #666;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    /* Menu Section */
+    .product {
+      padding: 6rem 3rem;
+      background: #f9fafb;
+      text-align: center;
+    }
+    .product .section-title {
+      text-align: center;
+    }
+    .product .section-text {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .img-box {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+    }
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-content {
+      padding: 1.5rem;
+      text-align: left;
+    }
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .product-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .product-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #d97706;
+    }
+    .product-text {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .product-rating {
+      color: #d97706;
+      font-size: 0.9rem;
+    }
+    /* Testimonials */
+    .testimonials {
+      padding: 6rem 3rem;
+      text-align: center;
+    }
+    .testimonials .section-text {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .testimonials-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+    .testimonials-rating {
+      color: #d97706;
+      margin: 1rem 0;
+    }
+    .testimonials-text {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .customer-name {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 3rem;
+      text-align: center;
+    }
+    .footer-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    .footer-info {
+      color: #999;
+      margin-bottom: 1rem;
+    }
+    .copyright {
+      color: #666;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar-nav {
+        display: none;
+      }
+      .home, .about {
+        grid-template-columns: 1fr;
+      }
+      .products-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .info-bar {
+        grid-template-columns: 1fr;
+      }
+      .main-heading {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav class="navbar">
+        <div class="navbar-wrapper">
+          <a href="#" class="logo">Chic N Chop</a>
+          <ul class="navbar-nav">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#menu" class="nav-link">Menu</a></li>
+            <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+          </ul>
+          <div class="navbar-btn-group">
+            <button class="btn btn-primary">Call to Order</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- HOME SECTION -->
+      <section class="home" id="home">
+        <div class="home-left">
+          <p class="home-subtext">Authentic Indian Cuisine</p>
+          <h1 class="main-heading">Fresh flavors that taste like home</h1>
+          <p class="home-text">
+            Experience authentic Indian cuisine prepared with traditional spices and techniques. Every dish is made fresh with love and care.
+          </p>
+          <div class="btn-group">
+            <button class="btn btn-primary">Our Menu</button>
+            <button class="btn" style="background: white; border: 2px solid #1a1a1a;">Call (925) 549-3149</button>
+          </div>
+        </div>
+        <div class="home-right">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80" alt="Indian cuisine">
+        </div>
+      </section>
+      <!-- INFO BAR -->
+      <div class="info-bar">
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-title">Location</div>
+            <div class="info-text">Swinford Ct, Dublin, CA 94568</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div>
+            <div class="info-title">Hours</div>
+            <div class="info-text">Opens 4:30 PM Daily</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="info-title">Phone</div>
+            <div class="info-text">(925) 549-3149</div>
+          </div>
+        </div>
+      </div>
+      <!-- ABOUT SECTION -->
+      <section class="about" id="about">
+        <div class="about-left">
+          <img src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?w=800&q=80" alt="about image" class="about-img">
+        </div>
+        <div class="about-right">
+          <h2 class="section-title">From Our Kitchen to Your Table</h2>
+          <p class="section-text">
+            At Chic N Chop, we believe in serving food that tastes fresh, flavorful, and truly feels like a home-cooked meal. Every dish is prepared with authentic spices and traditional techniques, bringing you the genuine taste of Indian cuisine.
+          </p>
+          <p class="section-text">
+            With a perfect 5.0 rating from 141 reviews, our customers describe our food as "deeply flavorful and expertly balanced" and "the best biryani ever had." Thank you for all the love and support—you truly mean a lot to us.
+          </p>
+        </div>
+      </section>
+      <!-- MENU SECTION -->
+      <section class="product" id="menu">
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-text">
+          Authentic Indian dishes made fresh daily. $10–20 per person.
+        </p>
+        <div class="products-grid">
+          <a href="#" style="text-decoration: none; color: inherit;">
+            <div class="product-card">
+              <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&q=80" alt="Butter Chicken" class="product-img">
+              </div>
+              <div class="product-content">
+                <div class="wrapper">
+                  <h3 class="product-name">Butter Chicken</h3>
+                  <p class="product-price">$12</p>
+                </div>
+                <p class="product-text">
+                  Tender chicken in rich, creamy tomato sauce
+                </p>
+                <div class="product-rating">★★★★★</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" style="text-decoration: none; color: inherit;">
+            <div class="product-card">
+              <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&q=80" alt="Chicken Biryani" class="product-img">
+              </div>
+              <div class="product-content">
+                <div class="wrapper">
+                  <h3 class="product-name">Chicken Biryani</h3>
+                  <p class="product-price">$14</p>
+                </div>
+                <p class="product-text">
+                  Aromatic basmati rice with succulent chicken
+                </p>
+                <div class="product-rating">★★★★★</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" style="text-decoration: none; color: inherit;">
+            <div class="product-card">
+              <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&q=80" alt="Dal Makhani" class="product-img">
+              </div>
+              <div class="product-content">
+                <div class="wrapper">
+                  <h3 class="product-name">Dal Makhani</h3>
+                  <p class="product-price">$10</p>
+                </div>
+                <p class="product-text">
+                  Black lentils simmered overnight in butter
+                </p>
+                <div class="product-rating">★★★★★</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" style="text-decoration: none; color: inherit;">
+            <div class="product-card">
+              <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80" alt="Palak Paneer" class="product-img">
+              </div>
+              <div class="product-content">
+                <div class="wrapper">
+                  <h3 class="product-name">Palak Paneer</h3>
+                  <p class="product-price">$11</p>
+                </div>
+                <p class="product-text">
+                  Fresh spinach with cottage cheese
+                </p>
+                <div class="product-rating">★★★★★</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" style="text-decoration: none; color: inherit;">
+            <div class="product-card">
+              <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80" alt="Goat Curry" class="product-img">
+              </div>
+              <div class="product-content">
+                <div class="wrapper">
+                  <h3 class="product-name">Goat Curry</h3>
+                  <p class="product-price">$16</p>
+                </div>
+                <p class="product-text">
+                  Tender goat in traditional spices
+                </p>
+                <div class="product-rating">★★★★★</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" style="text-decoration: none; color: inherit;">
+            <div class="product-card">
+              <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=800&q=80" alt="Garlic Naan" class="product-img">
+              </div>
+              <div class="product-content">
+                <div class="wrapper">
+                  <h3 class="product-name">Garlic Naan</h3>
+                  <p class="product-price">$3</p>
+                </div>
+                <p class="product-text">
+                  Fresh-baked flatbread with garlic
+                </p>
+                <div class="product-rating">★★★★★</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <button class="btn btn-primary">Call to Order: (925) 549-3149</button>
+      </section>
+      <!-- TESTIMONIALS SECTION -->
+      <section class="testimonials" id="testimonials">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-text">
+          ★★★★★ 5.0 · 141 reviews
+        </p>
+        <div class="testimonials-grid">
+          <div class="testimonials-card">
+            <div class="testimonials-rating">★★★★★</div>
+            <p class="testimonials-text">
+              "It has been a long time since we've experienced Indian food this deeply flavorful and expertly balanced at this price point."
+            </p>
+            <h5 class="customer-name">Marc C</h5>
+          </div>
+          <div class="testimonials-card">
+            <div class="testimonials-rating">★★★★★</div>
+            <p class="testimonials-text">
+              "Very good food. The chef is very friendly. Best biryani ever had."
+            </p>
+            <h5 class="customer-name">Mohit Satija</h5>
+          </div>
+          <div class="testimonials-card">
+            <div class="testimonials-rating">★★★★★</div>
+            <p class="testimonials-text">
+              "Years ago I ate the best Indian food I've ever had from a dear neighbor—this tasted just like it!"
+            </p>
+            <h5 class="customer-name">Savanah Davis</h5>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-wrapper">
+        <div class="footer-brand">Chic N Chop</div>
+        <p class="footer-info">Swinford Ct, Dublin, CA 94568</p>
+        <p class="footer-info">Opens 4:30 PM Daily</p>
+        <p class="footer-info">(925) 549-3149</p>
+        <p class="footer-info">Takeout • Curbside Pickup • Delivery • Catering</p>
+        <p class="copyright">© 2025 Chic N Chop Indian Cuisine. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
