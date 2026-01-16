@@ -35,14 +35,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 3rem;
+      padding: 1rem 3rem;
     }
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #1a1a1a;
+      display: flex;
+      align-items: center;
       text-decoration: none;
+    }
+    .logo img {
+      height: 70px;
+      width: auto;
     }
     .navbar-nav {
       display: flex;
@@ -326,6 +328,9 @@
       .main-heading {
         font-size: 2.5rem;
       }
+      .logo img {
+        height: 50px;
+      }
     }
   </style>
 </head>
@@ -334,7 +339,9 @@
     <header>
       <nav class="navbar">
         <div class="navbar-wrapper">
-          <a href="#" class="logo">Chic N Chop</a>
+          <a href="#" class="logo">
+            <img src="logo.png" alt="Chic N Chop Logo">
+          </a>
           <ul class="navbar-nav">
             <li><a href="#home" class="nav-link">Home</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
@@ -357,7 +364,7 @@
             Experience authentic Indian cuisine prepared with traditional spices and techniques. Every dish is made fresh with love and care.
           </p>
           <div class="btn-group">
-            <a href="#menu" class="btn btn-primary" style="text-decoration: none; display: inline-block;">Our Menu</a>
+            <a href="#menu" class="btn btn-primary" style="text-decoration: none; display: inline-block;">Signature Dishes</a>
             <a href="tel:+19255493149" class="btn" style="background: white; border: 2px solid #1a1a1a; text-decoration: none; display: inline-block;">Call (925) 549-3149</a>
           </div>
         </div>
@@ -406,7 +413,7 @@
       </section>
       <!-- MENU SECTION -->
       <section class="product" id="menu">
-        <h2 class="section-title">Our Menu</h2>
+        <h2 class="section-title">Signature Dishes</h2>
         <p class="section-text">
           Authentic Indian dishes made fresh daily. $10–20 per person.
         </p>
@@ -465,7 +472,7 @@
           <a href="#" style="text-decoration: none; color: inherit;">
             <div class="product-card">
               <div class="img-box">
-                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80" alt="Palak Paneer" class="product-img">
+                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&q=80" alt="Palak Paneer" class="product-img">
               </div>
               <div class="product-content">
                 <div class="wrapper">
@@ -499,7 +506,7 @@
           <a href="#" style="text-decoration: none; color: inherit;">
             <div class="product-card">
               <div class="img-box">
-                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=800&q=80" alt="Garlic Naan" class="product-img">
+                <img src="https://images.unsplash.com/photo-1619573768596-b70c1ea0a7c1?w=800&q=80" alt="Garlic Naan" class="product-img">
               </div>
               <div class="product-content">
                 <div class="wrapper">
